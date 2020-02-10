@@ -3,26 +3,24 @@ https://github.com/kissgabi/szakdolgozat.git
 kissgabi
 szak.dolgozat@sryer.com
 L...-@-II.
-
--create a new repository on the command line
+__________________________________________________________________
+- create a new repository on the command line
 echo "# szakdolgozat" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/kissgabi/szakdolgozat.git
 git push -u origin master
-
-
-
--push an existing repository from the command line
+__________________________________________________________________
+- push an existing repository from the command line
 git remote add origin https://github.com/kissgabi/szakdolgozat.git
 git push -u origin master
-
-
+__________________________________________________________________
 config --global color.ui true
 config --global branch.autosetuprebase always
-
 git config --global credential.helper 'cache --timeout 3600'
-
-
+__________________________________________________________________
 git config --global -l
+git config --locall -l
+__________________________________________________________________
+
