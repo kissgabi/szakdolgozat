@@ -1,0 +1,3 @@
+sudo update-grub
+sudo grub-install /dev/sda
+
