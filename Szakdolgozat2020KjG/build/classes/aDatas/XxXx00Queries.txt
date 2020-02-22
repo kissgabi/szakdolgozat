@@ -1,0 +1,3 @@
+list_all_usernames
+SELECT `user_name` AS 'Felhasználók' FROM `kkv_user_datas` 
+    ORDER BY `user_name`;

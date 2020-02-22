@@ -1,0 +1,128 @@
+broadcast_username
+SELECT `user_name` FROM `kkv_user_datas`
+    WHERE `user_key` = 1;
+list_memo_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+    ORDER BY `recorded` DESC;
+list_all_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    ORDER BY `recorded` DESC;
+list_partner_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+            OR 
+          (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?
+            OR
+          `receiver` = 1
+    ORDER BY `recorded` DESC;
+list_employee_all_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+            OR 
+          (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?
+            OR 
+          `receiver` = 1
+    ORDER BY `recorded` DESC;
+list_employee_partner_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+    ORDER BY `recorded` DESC;
+list_partner_in_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ? 
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) != ?
+          AND `receiver` = 1)
+    ORDER BY `recorded` DESC;
+list_employee_all_in_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?
+            OR
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) != ?
+          AND `receiver` = 1)
+    ORDER BY `recorded` DESC;
+list_employee_partner_in_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+    ORDER BY `recorded` DESC;
+list_partner_out_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+    ORDER BY `recorded` DESC;
+list_employee_all_out_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+    ORDER BY `recorded` DESC;
+list_employee_partner_out_messages
+SELECT  `recorded` AS `Időpont`, 
+        `message` AS `Feljegyzés`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) AS `Rögzítette`, 
+        (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) AS `Címzett`
+    FROM `kkv_message_records`
+    WHERE ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+            OR 
+          ((SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `reporter` ) = ? 
+        AND (SELECT `user_name` FROM `kkv_user_datas` WHERE `user_key` = `receiver` ) = ?)
+    ORDER BY `recorded` DESC;
+push_message
+INSERT INTO `kkv_message_records` (`reporter`, `receiver`, `message`) 
+    VALUES ((SELECT `user_key` FROM `kkv_user_datas` WHERE `user_name` = ?), 
+            (SELECT `user_key` FROM `kkv_user_datas` WHERE `user_name` = ?), 
+            ?);

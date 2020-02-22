@@ -1,0 +1,6 @@
+valid_username_usegroup
+SELECT `usergroup` FROM `kkv_user_datas`
+    WHERE `user_name` = ?;
+valid_password_usergroup
+SELECT `usergroup` FROM `kkv_user_datas`
+    WHERE `user_name` = ? AND user_password = MD5(?);

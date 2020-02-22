@@ -1,0 +1,12 @@
+broadcast_username
+SELECT `user_name` FROM `kkv_user_datas`
+    WHERE `user_key` = 1;
+valid_username_usegroup
+SELECT `usergroup` FROM `kkv_user_datas`
+    WHERE `user_name` = ?;
+valid_password_usergroup
+SELECT `usergroup` FROM `kkv_user_datas`
+    WHERE `user_name` = ? AND user_password = MD5(?);
+list_all_usernames
+SELECT `user_name` AS 'Felhasználók' FROM `kkv_user_datas` 
+    ORDER BY `user_name`;
