@@ -88,7 +88,8 @@ CREATE TABLE `kkv_tool_datas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 /* SET FOREIGN KEY IN KKV TOOL DATAS     */
-ALTER TABLE `kkv_tool_datas` ADD FOREIGN KEY(toolgroup) REFERENCES `kkv_tool_groups`(toolgroup_key);
+ALTER TABLE `kkv_tool_datas` ADD FOREIGN KEY(toolgroup)
+  REFERENCES `kkv_tool_groups`(toolgroup_key);
 
 
 /*                    RECORDS - TOOLS --------------------------------------------*/
@@ -108,7 +109,8 @@ CREATE TABLE `kkv_tool_records` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 /* SET FOREIGN KEY IN KKV COMMENT       */
-ALTER TABLE `kkv_tool_records` ADD FOREIGN KEY(reporter) REFERENCES `kkv_user_datas`(user_key);
+ALTER TABLE `kkv_tool_records` ADD FOREIGN KEY(reporter)
+  REFERENCES `kkv_user_datas`(user_key);
 
 /*                    RECORDS - MESSAGES --------------------------------------*/
 

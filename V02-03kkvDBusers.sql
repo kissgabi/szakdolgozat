@@ -93,8 +93,13 @@ GRANT SELECT, INSERT
     ON `kkv_sample`.`kkv_tool_records` TO 'accountant'@'localhost';
 GRANT SELECT (`recorded`, `reporter`, `receiver`, `message`)
     ON `kkv_sample`.`kkv_message_records` TO 'accountant'@'localhost'; 
+
+
 /*GRANT UPDATE (`user_password`)
     ON `kkv_sample`.`kkv_user_datas` TO 'accountant'@'localhost';*/
+
+
+
 
 CREATE USER IF NOT EXISTS 'shopper'@'localhost' IDENTIFIED BY 'shoppermysql';
 GRANT SELECT 
@@ -103,6 +108,8 @@ GRANT INSERT (`recorded`, `reporter`, `tool`, `price`, `notes`)
     ON `kkv_sample`.`kkv_tool_records` TO 'shopper'@'localhost';
 GRANT SELECT (`recorded`, `reporter`, `receiver`, `message`)
     ON `kkv_sample`.`kkv_message_records` TO 'shopper'@'localhost'; 
+
+
 /*GRANT UPDATE (`user_password`)
     ON `kkv_sample`.`kkv_user_datas` TO 'shopper'@'localhost';*/
 
