@@ -56,7 +56,8 @@ CREATE TABLE `kkv_user_datas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 /* SET FOREIGN KEY IN KKV USER DATAS     */
-ALTER TABLE `kkv_user_datas` ADD FOREIGN KEY(usergroup) REFERENCES `kkv_user_groups`(usergroup_key);
+ALTER TABLE `kkv_user_datas` ADD FOREIGN KEY(usergroup) 
+  REFERENCES `kkv_user_groups`(usergroup_key);
 
 
 /*                    RECORDS - MESSAGES --------------------------------------*/
@@ -74,7 +75,8 @@ CREATE TABLE `kkv_message_records` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 /* SET FOREIGN KEY IN KKV COMMENT       */
-ALTER TABLE `kkv_message_records` ADD FOREIGN KEY(reporter) REFERENCES `kkv_user_datas`(user_key);
+ALTER TABLE `kkv_message_records` ADD FOREIGN KEY(reporter)
+  REFERENCES `kkv_user_datas`(user_key);
 
 
 /* END OF FILE -------------------------------------------------------------------*/
