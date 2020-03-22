@@ -56,7 +56,9 @@ public class XxXx02MsgPushPanel extends javax.swing.JPanel {
         textMessage.setText("");
     }
 
-    public void enablePush(boolean b) {
+    public void enablePush() {
+        boolean b = textMessage.getText().length() >= MSGTAB_MESSAGES_MIN_LENGTH;
+        b = b && !(comboTargetList.getSelectedIndex() == 0);
         btnSendMessage.setEnabled(b);
     }
 
@@ -94,6 +96,11 @@ public class XxXx02MsgPushPanel extends javax.swing.JPanel {
         jPanel4.add(lblTarget, gridBagConstraints);
 
         comboTargetList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboTargetList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTargetListActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 2;
@@ -150,10 +157,12 @@ public class XxXx02MsgPushPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSendMessageActionPerformed
 
     private void textMessageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textMessageKeyTyped
-        if (textMessage.getText().length() >= MSGTAB_MESSAGES_MIN_LENGTH) {
-            c.messageEnable();
-        }
+        c.messageEnable();
     }//GEN-LAST:event_textMessageKeyTyped
+
+    private void comboTargetListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTargetListActionPerformed
+        c.messageEnable();
+    }//GEN-LAST:event_comboTargetListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

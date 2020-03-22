@@ -5,6 +5,7 @@
  */
 package aControl;
 
+import static aControl.XxXxDialogs.dialogServerNotFound;
 import static aGlobal.XxXx00Global.*;
 import static aGlobal.XxXx02Global.*;
 import aSurfaces.XxXx00ControlPanel;
@@ -177,10 +178,10 @@ public class XxXx02Control {
                 if (who.equals(MSGTAB_BROADCAST_USERNAME)) {
                     who = MSGTAB_BROADCAST_TXT;
                 }
-                if (index != 0) {
-                    MAINFRAME.statusBarSetText(index + MSGTAB_SEND_OK_TXT
+                if (index >= 0) {
+                    MAINFRAME.statusBarSetText(MSGTAB_SEND_OK_TXT
                             + MSGTAB_LABEL_ADDRESSEE_TXT + who);
-                    MSGPUSHPANEL.enablePush(false);
+                    MSGPUSHPANEL.enablePush();
                     MSGPUSHPANEL.clearTextfield();
                     MSGVIEWPANEL.resetRadioButtons();
                     MSGVIEWPANEL.resetUserList();
@@ -190,6 +191,7 @@ public class XxXx02Control {
                 } else {
                     MAINFRAME.statusBarSetText(MSGTAB_SEND_NOT_OK_TXT
                             + MSGTAB_LABEL_ADDRESSEE_TXT + who);
+                    dialogServerNotFound();
                 }
             default:
         }
@@ -211,6 +213,6 @@ public class XxXx02Control {
     }
 
     public void messageEnable() {
-        MSGPUSHPANEL.enablePush(true);
+        MSGPUSHPANEL.enablePush();
     }
 }

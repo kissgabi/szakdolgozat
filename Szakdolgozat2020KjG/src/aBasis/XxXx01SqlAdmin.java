@@ -196,7 +196,8 @@ public class XxXx01SqlAdmin {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            return null;
+            c.disableServerButtons();
+            return -1;
         }
         return toReturn;
     }

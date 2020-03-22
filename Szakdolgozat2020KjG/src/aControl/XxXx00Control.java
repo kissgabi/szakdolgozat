@@ -180,6 +180,10 @@ public class XxXx00Control {
         System.out.println("Control.exitPrgram()");
         System.exit(0);
     }
+    
+    public void disableServerButtons(){
+        MAINFRAME.dbDisConnected();
+    }
 
     public void drawGraphity(Graphics g) {
         switch (state) {

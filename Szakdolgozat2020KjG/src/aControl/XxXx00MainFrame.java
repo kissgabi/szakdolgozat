@@ -115,6 +115,14 @@ public class XxXx00MainFrame extends javax.swing.JFrame {
         btnDbase.setIcon(ICON_CLOUD2);
     }
 
+    public void dbDisConnected() {
+        statusBarSetText(STATUS_CONNECTED_TXT);
+        btnConnect.setText(EMPTY_STRING);
+        btnConnect.setIcon(null);
+        mainToolBar.remove(btnDbase);
+        mainToolBar.repaint();
+    }
+
     private void panelsOff() {
         controlPanelOff();
     }

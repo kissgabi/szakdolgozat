@@ -37,6 +37,10 @@ public class XxXxDialogs {
         showError(DIALOG_NOTFOUND_TXT);
     }
 
+    public static void dialogServerNotFound() {
+        showError(DIALOG_SERVER_ERROR_TXT);
+    }
+
     public static void dialogHost() {
         if (state == XxXx00Global.PROCESS_STATE.PROLOG) {
             dialogHostAddress();

@@ -26,6 +26,8 @@ public class XxXx00Global {
     public static final String TEST_USERNAME = "Super User";
     public static final String TEST_USERPSWD = "superuserpassword";
 
+    public static final String EMPTY_STRING = "";
+
     /**
      * log fájlok helye
      */
@@ -35,10 +37,10 @@ public class XxXx00Global {
     public static String hostAddress;
     public static String localNetworkAddress;
     public static String dbAddress = "localhost";
-    public static String executorName = "";
-    public static String executorPswd = "";
+    public static String executorName = EMPTY_STRING;
+    public static String executorPswd = EMPTY_STRING;
     public static String dbUsername = "root";
-    public static String dbPassword = "";
+    public static String dbPassword = EMPTY_STRING;
 
     public XxXx00Global() {
     }
@@ -79,7 +81,7 @@ public class XxXx00Global {
     public static final String URL2 = "?useUnicode=true&characterEncoding=UTF-8";
 
     public static final String USER = "root";
-    public static final String PSWD = "";
+    public static final String PSWD = EMPTY_STRING;
     public static final String CHARSET = " DEFAULT CHARACTER SET utf8mb4 ";
     public static final String COLLATION = " COLLATE utf8mb4_hungarian_ci";
 
@@ -146,6 +148,7 @@ public class XxXx00Global {
             + " \"MVP\" megközelítésben";
 
     public static final String DIALOG_ERROR_TXT = "Hiba";
+    public static final String DIALOG_SERVER_ERROR_TXT = "Szerverhiba! Értesítsd a rendszergazdát!";
     public static final String DIALOG_INFO_TXT = "Informació";
     public static final String DIALOG_NAME_TXT = "KKV információs adatbázis";
     public static final String DIALOG_COPYRIGHT_TXT = "A.D. 2020 by EmI";
@@ -169,10 +172,10 @@ public class XxXx00Global {
     public static final String BUTTON_CONNECTED_TXT = "Csatlakoztatva";
 
     public static final String LABEL_USER_TXT = "Név:";
-    public static final String TEXTFIELD_TXT = "";
+    public static final String TEXTFIELD_TXT = EMPTY_STRING;
     public static final String BUTTON_LOGIN_TXT = "Tovább...";
     public static final String LABEL_PSWD_TXT = "Jelszó:";
-    public static final String PASSWORD_TXT = "";
+    public static final String PASSWORD_TXT = EMPTY_STRING;
     public static final String BUTTON_SUBMIT_TXT = "Belépés";
 
     public static final String ICON_CONNECTED_SOURCE
